@@ -3,7 +3,7 @@ import React from 'react'
 const FlagBlock = ({img, name, population, region, capital}) => {
   return (
     <div className="flagblock">
-        <img src={img} alt='flag'></img>
+        <div className='flag-img'><img src={img} alt='flag'></img></div>
         <div className="FlagName">
             <span>{name}</span>
         </div>
