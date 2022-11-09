@@ -43,10 +43,11 @@ const Home = () => {
   return (
     <div className="Home">
         <HomeNav />
-        {isLoading && <p>Loading ...</p>}
-        {fetchError && <p>Connection to database failed</p>}
-        {!isLoading && !fetchError &&
-        <Content data={data}/>}
+        <Content 
+            isLoading={isLoading} 
+            data={data}
+            fetchError={fetchError}
+        />
     </div>
   )
 }
