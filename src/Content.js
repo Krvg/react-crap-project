@@ -2,8 +2,12 @@ import React from 'react';
 import ContentNav from './ContentNav';
 import ContentFlags from './ContentFlags';
 import {useState, useEffect} from 'react';
+import { useContext } from 'react';
+import DataContext from './context/DataContext'
 
-const Content = ({data, fetchError, isLoading}) => {
+const Content = () => {
+
+  const {isLoading, data, fetchError} = useContext(DataContext)
 
   const [searched, setSearched] = useState(data);
   const [option, setOption] = useState("Filter by regions");

@@ -3,26 +3,18 @@ import Home from './Home';
 import {BrowserRouter ,Routes, Route } from "react-router-dom";
 import Layout from './Layout';
 import CountryPage from './CountryPage';
+import { DataProvider } from './context/DataContext';
 
 function App() {
   return (
+    <DataProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="countrypage" element={<CountryPage />}/>
+          <Route path="countrypage/:name" element={<CountryPage />}/>
         </Route>
       </Routes>
-
-/* <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter> */
+    </DataProvider>
   );
 }
 

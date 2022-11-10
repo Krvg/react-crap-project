@@ -59,7 +59,9 @@ img{
 .flagblock{
   /* border:1px solid red; */
   width:330px;
-  height: 400px;
+  height: 330px;
+ cursor: pointer; 
+ text-decoration: none;
 }
 .flag-img{
   width:330px;
@@ -73,7 +75,7 @@ img{
   min-height: 100vh;
   height: 100%;
   grid-template-columns: repeat(4,1fr);
-  grid-gap:20px;
+  gap:20px;
   justify-content: center;
   
 }
@@ -117,4 +119,9 @@ img{
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.links{
+  text-decoration: none;
+  color: var(--txt);
 }
