@@ -6,19 +6,22 @@ import {useState, useEffect} from 'react';
 const Content = ({data, fetchError, isLoading}) => {
 
   const [searched, setSearched] = useState(data);
+  const [option, setOption] = useState("Filter by regions");
 
   useEffect(() =>{
     setSearched(data)
   }, [data])
 
-  console.log(searched);
   return (
     <div className='content'>
         <ContentNav 
           data={data} 
           setSearched={setSearched}
+          option={option}
+          setOption={setOption}
         />
-        <ContentFlags 
+        <ContentFlags
+            option={option}
             fetchError={fetchError}
             isLoading={isLoading}
             data={searched}

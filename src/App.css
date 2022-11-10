@@ -14,6 +14,9 @@ body.white{
   font-family: 'Nunito Sans', sans-serif;
 }
 
+#root{
+  width: 100%;
+}
 
 .Home{
   width:100%; 
@@ -66,10 +69,43 @@ img{
 
 .content-flags{
   display: grid;
-  width: 100%;
+  padding-left: 4%;
+  min-height: 100vh;
   height: 100%;
   grid-template-columns: repeat(4,1fr);
-  grid-gap:40px;
+  grid-gap:20px;
   justify-content: center;
   
+}
+
+
+.options{
+  position: absolute;
+  z-index: 2;
+  border: 1px solid black;
+  background-color: var(--elements);
+  width:150px;
+}
+
+.options ul{
+  list-style: none;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  padding-left:0%;
+}
+
+.options li{
+  cursor: pointer;
+  height: 30px;
+  padding-left: 10px;
+}
+.options li:hover{
+  background-color: hsl(208, 23%, 35%);
+}
+
+.select{
+  width:150px;
+  display: flex;
+  justify-content: space-between;
 }

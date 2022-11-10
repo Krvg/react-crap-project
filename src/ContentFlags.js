@@ -2,6 +2,7 @@ import React from 'react'
 import FlagBlock from './FlagBlock'
 
 const ContentFlags = ({data, isLoading, fetchError}) => {
+
   return (
     <div className="content-flags">
         {/* <FlagBlock
@@ -15,6 +16,7 @@ const ContentFlags = ({data, isLoading, fetchError}) => {
         {!isLoading && !fetchError &&
         data.map((country) => (
             <FlagBlock
+            key={country.name.common}
             name = {country.name.common}
             population= {country.population}
             region = {country.region}
