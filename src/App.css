@@ -85,6 +85,7 @@ img{
   border: 1px solid black;
   background-color: var(--elements);
   width:150px;
+  border-radius: 10px;
 }
 
 .options ul{
@@ -108,4 +109,12 @@ img{
   width:150px;
   display: flex;
   justify-content: space-between;
+  background-color: var(--elements);
+  height: 50px;
+  border: none;
+  color: var(--txt);
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

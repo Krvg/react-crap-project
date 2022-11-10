@@ -1,18 +1,17 @@
 import React from 'react'
 
-const Filter = ({options, active, setActive, setOption}) => {
+const Filter = ({refs, options, setOption, setIsComponentVisible}) => {
 
   return (
     <div 
+        ref={refs}
         className="options"
-        onClick={() => setActive(false)}
-        style={{visibility: active ? "visible" : "hidden"}}
     >
         <ul>
             {options.map((option) =>(
                 <li onClick={() => {
-                    setActive(false)
-                    setOption(option)
+                  setOption(option)
+                  setIsComponentVisible(false)
                 }}>{option}</li>
             ))}
         </ul>

@@ -3,15 +3,17 @@ import {FaSearch} from 'react-icons/fa';
 import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
 import { useState, useEffect } from 'react';
 import Filter from './Filter';
+import useComponentVisible from './useComponentVisible';
  
 const ContentNav = ({data ,setSearched, option, setOption}) => {
   const options = ["All","America","Africa","Asia","Europe","Oceania"];
-  const [active, setActive] = useState(false);
   const [selectedData, setSelectedData] = useState(option);
+
+  const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false);
 
   useEffect(() =>{
     console.log(option);
-      const temp_selectedData = option != "All" ? data.filter((country) => country.region.toLowerCase().includes(option.toLowerCase())) : data ;
+      const temp_selectedData = option !== "All" ? data.filter((country) => country.region.toLowerCase().includes(option.toLowerCase())) : data ;
       console.log(temp_selectedData);
       setSelectedData(temp_selectedData);
       setSearched(temp_selectedData)
@@ -35,14 +37,14 @@ const ContentNav = ({data ,setSearched, option, setOption}) => {
         </label>
 
         <label htmlFor="select">
-            <button className='select' onClick={() => setActive(true)}>{option}<MdOutlineKeyboardArrowDown/></button>
+            <button className='select' onClick={() => setIsComponentVisible(true)}>{option}<MdOutlineKeyboardArrowDown/></button>
+            {isComponentVisible && 
             <Filter 
+              refs={ref}
+              setIsComponentVisible={setIsComponentVisible}
               options={options}
-              // option={option}
               setOption={setOption}
-              active={active}
-              setActive={setActive}
-            />
+            />}
         </label>
     </div>
   )
