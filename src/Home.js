@@ -1,5 +1,4 @@
 import React from 'react';
-import HomeNav from './HomeNav';
 import Content from './Content';
 import { useState, useEffect, useRef } from 'react';
 
@@ -13,18 +12,15 @@ const Home = () => {
 
     useEffect(() =>{
         if(effectRan.current === false){
-        console.log("eff ran");
         setisLoading(true);
         const fetchData = async () =>{
             try{
                 const resp = await fetch(API_URL);
                 if(!resp.ok) throw Error("Failed to connect to countries database")
                 const data = await resp.json();
-                console.log(data);
                 setData(data);
             } catch (err){
                 setFetchError(err.message);
-                console.log(err.message);
             } finally{
                 setisLoading(false);
             }
@@ -33,16 +29,14 @@ const Home = () => {
         setTimeout(() =>{fetchData()},1000)
 
         return() =>{
-            console.log("unmounted");
             effectRan.current = true;
         }
         }
         // fetchData();
-    },[])
+    },[API_URL])
 
   return (
     <div className="Home">
-        <HomeNav />
         <Content 
             isLoading={isLoading} 
             data={data}

@@ -9,7 +9,7 @@ const Filter = ({refs, options, setOption, setIsComponentVisible}) => {
     >
         <ul>
             {options.map((option) =>(
-                <li onClick={() => {
+                <li key={option} onClick={() => {
                   setOption(option)
                   setIsComponentVisible(false)
                 }}>{option}</li>

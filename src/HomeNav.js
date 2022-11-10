@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaMoon } from "react-icons/fa";
 
-const HomeNav = () => {
+const Nav = () => {
 
   const toggleDarkMode = () =>{
     document.body.classList.toggle('white');
@@ -15,4 +15,4 @@ const HomeNav = () => {
   )
 }
 
-export default HomeNav
+export default Nav

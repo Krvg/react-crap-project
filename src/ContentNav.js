@@ -12,9 +12,7 @@ const ContentNav = ({data ,setSearched, option, setOption}) => {
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false);
 
   useEffect(() =>{
-    console.log(option);
       const temp_selectedData = option !== "All" ? data.filter((country) => country.region.toLowerCase().includes(option.toLowerCase())) : data ;
-      console.log(temp_selectedData);
       setSelectedData(temp_selectedData);
       setSearched(temp_selectedData)
   }, [option])
