@@ -11,10 +11,14 @@ const Content = () => {
 
   const [searched, setSearched] = useState(data);
   const [option, setOption] = useState("Filter by regions");
+  const [selectedData, setSelectedData] = useState(data);
 
   useEffect(() =>{
     setSearched(data)
+    setSelectedData(data)
   }, [data])
+
+  console.log(searched);
 
   return (
     <div className='content'>
@@ -23,6 +27,8 @@ const Content = () => {
           setSearched={setSearched}
           option={option}
           setOption={setOption}
+          selectedData={selectedData}
+          setSelectedData={setSelectedData}
         />
         <ContentFlags
             option={option}

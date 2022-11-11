@@ -4,10 +4,12 @@ import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
 import { useState, useEffect } from 'react';
 import Filter from './Filter';
 import useComponentVisible from './useComponentVisible';
+import { useContext } from 'react';
+import DataContext from './context/DataContext';
  
-const ContentNav = ({data ,setSearched, option, setOption}) => {
+const ContentNav = ({setSearched, option, setOption, selectedData, setSelectedData}) => {
   const options = ["All","America","Africa","Asia","Europe","Oceania"];
-  const [selectedData, setSelectedData] = useState(option);
+  const {data} = useContext(DataContext);
 
   const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false);
 
