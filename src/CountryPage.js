@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { useContext } from 'react';
 import DataContext from './context/DataContext';
 
 const CountryPage = () => {
-
-  const {country, data, setCountry} = useContext(DataContext);
-  const countryObj = data.filter((countryName) => countryName.name.common == country)
-  console.log(countryObj);
+  const {data} = useContext(DataContext);
+  const countryName = useParams();
+  const countryObj = data.filter((country) => country.name.common == countryName.name)
   
   const findCountry = (shortName) =>{
     const found = data.filter((country) => country.cca3 == shortName)
@@ -23,8 +22,7 @@ const CountryPage = () => {
         <Link key={border} to={'/countrypage/'+findCountry(border)}>
           <button 
             key={border}
-            onClick={() => setCountry(findCountry(border))}
-          >{border}</button>
+          >{findCountry(border)}</button>
          </Link>
         ))}
     </div>
